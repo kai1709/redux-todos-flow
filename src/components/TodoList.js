@@ -4,7 +4,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = ({ todos, toggleTodo }: Object): Object => (
+type TodoListInterface = {
+  todos: Array<Object>,
+  toggleTodo: Function
+}
+const TodoList = ({ todos, toggleTodo }: TodoListInterface) => (
   <ul>
     {todos.map(todo =>
       <Todo

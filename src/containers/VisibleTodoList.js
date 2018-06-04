@@ -4,8 +4,19 @@ import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
 import TodoList from '../components/TodoList'
 import { VisibilityFilters } from '../actions'
+import type { TodosInterface } from '../reducers/todos';
 
-const getVisibleTodos = (todos: Object, filter: string): Object => {
+type MapStateInterface = {
+  todos: TodosInterface
+}
+type MapDispatchInterface = {
+  toggleTodo: Function
+}
+type StateInterface = {
+  todos: TodosInterface,
+  visibilityFilter: string
+}
+const getVisibleTodos = (todos: TodosInterface, filter: string): TodosInterface => {
   switch (filter) {
     case VisibilityFilters.SHOW_ALL:
       return todos
@@ -18,11 +29,12 @@ const getVisibleTodos = (todos: Object, filter: string): Object => {
   }
 }
 
-const mapStateToProps = (state: Object): Object => ({
+
+const mapStateToProps = (state: StateInterface): MapStateInterface => ({
   todos: getVisibleTodos(state.todos, state.visibilityFilter)
 })
 
-const mapDispatchToProps = (dispatch: Function): Object => {
+const mapDispatchToProps = (dispatch: Function): MapDispatchInterface => {
   return ({
     toggleTodo: id => dispatch(toggleTodo(id))
   })
