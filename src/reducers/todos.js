@@ -10,7 +10,7 @@ type TodoInterface = {
 }
 type Action = TodoAddAction | TodoToggleAction;
 
-const todos = (state: TodosInterface = [], action: Object): TodosInterface => {
+const todos = (state: TodosInterface = [], action: Action): TodosInterface => {
   switch (action.type) {
     case 'ADD_TODO':
       return [

@@ -2,18 +2,18 @@
 
 let nextTodoId = 0;
 export type TodoAddAction = {
-  type: string,
+  type: 'ADD_TODO',
   id: number,
   text: string,
 }
 
 export type TodoToggleAction = {
-  type: string,
+  type: 'TOGGLE_TODO',
   id: number,
 }
 
 export type TodoSetFilterAction = {
-  type: string,
+  type: 'SET_VISIBILITY_FILTER',
   filter: string,
 }
 
