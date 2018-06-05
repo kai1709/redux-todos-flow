@@ -1,13 +1,15 @@
 // @flow
 
 import type { TodoAddAction, TodoToggleAction } from '../actions/index';
-export type TodosInterface = Array<TodoInterface>;
 
 type TodoInterface = {
   id: number,
   text: string,
   completed: boolean
 }
+
+export type TodosInterface = Array<TodoInterface>;
+
 type Action = TodoAddAction | TodoToggleAction;
 
 const todos = (state: TodosInterface = [], action: Action): TodosInterface => {
